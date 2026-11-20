@@ -1,0 +1,1626 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="data:," />
+    <title>11月 アクションプラン</title>
+    <style>
+      :root {
+        --red: #e60012;
+        --red-dark: #c4000f;
+        --red-text: #d8000f;
+        --ink: #14151a;
+        --body: #33353b;
+        --gray: #71757e;
+        --bg: #f4f4f6;
+        --line: #e3e4e8;
+        --inner: #eff0f3;
+        --navy: #26264e;
+        --maroon: #9e0b14;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--body);
+        font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      button { font-family: inherit; }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        background-color: #101014;
+        background-image:
+          radial-gradient(620px 320px at 88% -10%, rgba(230, 0, 18, 0.38), rgba(230, 0, 18, 0) 62%),
+          repeating-linear-gradient(112deg, #101014 0 34px, #181920 34px 68px);
+        border-bottom: 4px solid var(--red);
+        color: #fff;
+      }
+      .hero-inner {
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 46px 20px 42px;
+      }
+      .hero-eyebrow {
+        color: var(--red);
+        font-size: 12.5px;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        margin: 0 0 14px;
+      }
+      .hero-title {
+        margin: 0;
+        font-size: clamp(36px, 10.5vw, 46px);
+        line-height: 1.18;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+      }
+      .hero-title .t1 { color: #fff; text-shadow: 3px 3px 0 rgba(110, 4, 14, 0.85); display: block; white-space: nowrap; }
+      .hero-title .t2 { color: var(--red); text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.55); display: block; white-space: nowrap; }
+      .hero-catch {
+        margin: 18px 0 0;
+        font-size: 17px;
+        font-weight: 800;
+        color: #fff;
+      }
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .hero-badge {
+        border: 2px solid var(--red);
+        border-radius: 999px;
+        padding: 7px 18px;
+        font-size: 14.5px;
+        font-weight: 800;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.25);
+        white-space: nowrap;
+      }
+      .hero-badge.solid { background: var(--red); }
+
+      /* ---------- Layout ---------- */
+      .wrap {
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 6px 20px 64px;
+      }
+      section { margin-top: 46px; }
+      h2.sec-title {
+        position: relative;
+        margin: 0;
+        padding-left: 17px;
+        font-size: 23px;
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.4;
+      }
+      h2.sec-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 3px;
+        bottom: 3px;
+        width: 7px;
+        border-radius: 4px;
+        background: var(--red);
+        box-shadow: 0 0 10px rgba(230, 0, 18, 0.55);
+      }
+      .sec-sub {
+        margin: 7px 0 0;
+        padding-left: 17px;
+        font-size: 13.5px;
+        color: var(--gray);
+        line-height: 1.8;
+      }
+      .note {
+        font-size: 13.5px;
+        color: #5a5e66;
+        line-height: 1.9;
+        margin: 14px 0 0;
+      }
+      .note-red {
+        font-size: 13.5px;
+        color: var(--red-text);
+        font-weight: 700;
+        line-height: 1.9;
+        margin: 14px 0 0;
+      }
+
+      /* ---------- Day tabs & panel ---------- */
+      .today-note {
+        margin: 16px 0 10px;
+        color: var(--red-text);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .day-tabs {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+      }
+      .day-tab {
+        appearance: none;
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 12px;
+        padding: 11px 0;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .day-tab.on {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+        box-shadow: 0 4px 14px rgba(230, 0, 18, 0.4);
+      }
+      .day-panel {
+        margin-top: 14px;
+        background: #fff;
+        border: 2px solid var(--red);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 6px 20px rgba(20, 21, 26, 0.06);
+      }
+      .day-panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .day-panel-name { font-size: 23px; font-weight: 900; color: var(--ink); }
+      .day-panel-badge {
+        flex: none;
+        border: 1.5px solid var(--red);
+        background: #fdecec;
+        color: var(--red-text);
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .day-row {
+        display: flex;
+        gap: 12px;
+        background: var(--inner);
+        border-radius: 14px;
+        padding: 14px;
+        margin-top: 10px;
+      }
+      .day-row:first-of-type { margin-top: 0; }
+      .day-chip {
+        flex: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 800;
+        font-size: 14.5px;
+      }
+      .chip-am { background: var(--maroon); }
+      .chip-pm { background: var(--navy); }
+      .chip-daily { background: var(--red); font-size: 13px; }
+      .day-row-title { font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.5; }
+      .day-row-detail { font-size: 13px; color: #676b73; line-height: 1.7; margin-top: 2px; }
+      .day-point {
+        margin-top: 12px;
+        background: #fdeeee;
+        border-radius: 12px;
+        padding: 12px 14px;
+        color: var(--red-text);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      /* ---------- Mission cards ---------- */
+      .mission-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .mission-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--red);
+        border-radius: 14px;
+        padding: 16px 16px 14px;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+      }
+      .mission-label { color: var(--red); font-size: 12px; font-weight: 800; letter-spacing: 0.14em; }
+      .mission-name { font-size: 17.5px; font-weight: 900; color: var(--ink); margin: 3px 0 8px; line-height: 1.45; }
+      .tri-list { list-style: none; margin: 0; padding: 0; }
+      .tri-list li {
+        position: relative;
+        padding-left: 15px;
+        font-size: 13.5px;
+        line-height: 1.75;
+        color: var(--body);
+        margin-top: 3px;
+      }
+      .tri-list li::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        top: 1px;
+        font-size: 8.5px;
+        color: var(--red);
+      }
+
+      /* ---------- Checklists ---------- */
+      .progress-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .progress-track {
+        flex: 1;
+        height: 8px;
+        border-radius: 99px;
+        background: #e4e5e9;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: var(--red);
+        border-radius: 99px;
+        transition: width 0.25s ease;
+      }
+      .progress-count {
+        color: var(--red-text);
+        font-weight: 800;
+        font-size: 15px;
+        white-space: nowrap;
+      }
+      .check-card {
+        margin-top: 12px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+        overflow: hidden;
+      }
+      .check-item {
+        appearance: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        background: #fff;
+        border: 0;
+        border-bottom: 1px solid #eeeef1;
+        padding: 14px 16px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      .check-item:last-child { border-bottom: 0; }
+      .check-box {
+        flex: none;
+        width: 26px;
+        height: 26px;
+        border: 2px solid #9aa0aa;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .check-item.done .check-box { background: var(--red); border-color: var(--red); }
+      .check-item.done .check-box::after { content: "✓"; }
+      .check-name { line-height: 1.55; }
+      .check-reps {
+        margin-left: auto;
+        flex: none;
+        color: var(--red-text);
+        font-weight: 800;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      .tag {
+        flex: none;
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        border-radius: 999px;
+        padding: 3px 9px;
+        line-height: 1.5;
+      }
+      .tag-red { background: var(--red); }
+      .tag-navy { background: var(--navy); }
+      .reset-btn {
+        margin-top: 14px;
+        appearance: none;
+        background: #fff;
+        border: 1px solid #d8d9de;
+        border-radius: 10px;
+        padding: 10px 18px;
+        font-size: 14px;
+        color: #33353b;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(20, 21, 26, 0.05);
+      }
+
+      /* ---------- Stretch videos ---------- */
+      .video-lead {
+        margin: 20px 0 0;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .video-lead span { color: var(--red-text); font-weight: 700; font-size: 13px; }
+      .video-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      .video-card {
+        display: block;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--red);
+        border-radius: 14px;
+        padding: 14px 16px 13px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+      }
+      .video-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .video-num {
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+      .video-play {
+        flex: none;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--red);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        padding-left: 2px;
+      }
+      .video-name {
+        display: block;
+        font-size: 17px;
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.45;
+        margin-top: 8px;
+      }
+      .video-link {
+        display: block;
+        margin-top: 4px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--red-text);
+      }
+      @media (max-width: 380px) {
+        .video-grid { grid-template-columns: 1fr; }
+      }
+
+      /* ---------- Bike program ---------- */
+      .week-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .week-tab {
+        appearance: none;
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 12px;
+        padding: 9px 2px 8px;
+        cursor: pointer;
+        color: var(--ink);
+      }
+      .week-tab .wt-label { display: block; font-size: 15.5px; font-weight: 800; line-height: 1.4; }
+      .week-tab .wt-range { display: block; font-size: 11px; color: var(--gray); line-height: 1.4; }
+      .week-tab.on { background: #14151a; border-color: #14151a; color: #fff; }
+      .week-tab.on .wt-range { color: #b9bcc4; }
+      .bike-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .bike-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 15px 16px;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+      }
+      .bike-head { display: flex; align-items: center; gap: 8px; }
+      .bike-name { font-size: 17px; font-weight: 900; color: var(--ink); }
+      .level {
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        border-radius: 999px;
+        padding: 2.5px 9px;
+        line-height: 1.5;
+      }
+      .level-light { background: #3d9970; }
+      .level-mid { background: #8a6d1d; }
+      .level-hard { background: var(--maroon); }
+      .bike-desc { font-size: 13.5px; color: var(--body); line-height: 1.75; margin-top: 7px; }
+      .bike-red { color: var(--red-text); font-weight: 800; font-size: 14px; margin-top: 7px; }
+      .dots { display: inline-flex; gap: 5px; vertical-align: middle; }
+      .dot { width: 11px; height: 11px; border-radius: 50%; background: #e0e1e5; }
+      .dot.fill { background: var(--red); }
+      .bike-dots { margin-top: 9px; display: flex; align-items: center; gap: 9px; }
+      .bike-dots .n { color: var(--red-text); font-weight: 800; font-size: 14px; }
+      .week-numbers {
+        margin-top: 14px;
+        background: #fff;
+        border: 1.5px solid var(--red);
+        border-radius: 14px;
+        padding: 16px 18px 8px;
+      }
+      .week-numbers-title { font-size: 16px; font-weight: 900; color: var(--ink); }
+      .wn-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px dotted #c9ccd2;
+        font-size: 14.5px;
+      }
+      .wn-row:last-child { border-bottom: 0; }
+      .wn-val { color: var(--red-text); font-weight: 800; white-space: nowrap; }
+
+      /* ---------- Week plan rows ---------- */
+      .plan-rows { margin-top: 18px; display: grid; gap: 10px; }
+      .plan-row {
+        appearance: none;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 13px 16px;
+        text-align: left;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+      }
+      .plan-circle {
+        flex: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--red);
+        color: #fff;
+        font-weight: 800;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .plan-am { display: block; color: var(--red-text); font-size: 12.5px; font-weight: 700; line-height: 1.5; }
+      .plan-pm { display: block; color: var(--ink); font-size: 15px; font-weight: 800; line-height: 1.5; }
+      .plan-arrow { margin-left: auto; color: #a6aab3; font-size: 20px; font-weight: 700; }
+
+      /* ---------- Static row cards (筋トレ / ラン) ---------- */
+      .row-card {
+        margin-top: 16px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 6px 18px;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+      }
+      .row-card-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 0 4px;
+      }
+      .letter-box {
+        flex: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--red);
+        color: #fff;
+        font-weight: 900;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .row-card-title { font-size: 16.5px; font-weight: 900; color: var(--ink); }
+      .kv-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 10.5px 0;
+        border-bottom: 1px dotted #c9ccd2;
+        font-size: 14.5px;
+      }
+      .kv-row:last-child { border-bottom: 0; }
+      .kv-row > span:first-child { flex: 1 1 auto; min-width: 0; }
+      .kv-val { color: var(--red-text); font-weight: 800; white-space: nowrap; font-size: 14px; }
+
+      /* ---------- Ball menu cards ---------- */
+      .menu-card {
+        margin-top: 16px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-top: 4px solid var(--red);
+        border-radius: 14px;
+        padding: 16px 18px;
+        box-shadow: 0 3px 10px rgba(20, 21, 26, 0.04);
+      }
+      .menu-title { font-size: 16.5px; font-weight: 900; color: var(--ink); display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+      .focus-pill {
+        background: var(--red);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 3px 10px;
+      }
+      .menu-card .tri-list { margin-top: 9px; }
+      .menu-card .tri-list li { font-size: 14px; }
+      .flow {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 11px;
+      }
+      .flow-chip {
+        border: 1.5px solid #c9ccd4;
+        border-radius: 9px;
+        padding: 5px 11px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--ink);
+        background: #fff;
+      }
+      .flow-arrow { color: var(--red); font-weight: 900; font-size: 14px; }
+
+      /* ---------- Minimum line card ---------- */
+      .minline {
+        background: linear-gradient(165deg, #ec0616 0%, #c4000f 100%);
+        border-radius: 16px;
+        padding: 22px;
+        color: #fff;
+        box-shadow: 0 12px 30px rgba(230, 0, 18, 0.32);
+      }
+      .minline-title { font-size: 19px; font-weight: 900; line-height: 1.5; }
+      .minline ol { margin: 12px 0 0; padding-left: 22px; font-size: 15px; line-height: 2.0; }
+      .minline-last { margin-top: 12px; font-size: 16.5px; font-weight: 900; }
+
+      /* ---------- Rules ---------- */
+      .rules-list { list-style: none; margin: 16px 0 0; padding: 0; }
+      .rules-list li {
+        position: relative;
+        padding: 11px 2px 11px 22px;
+        border-bottom: 1px dotted #c9ccd2;
+        font-size: 14.5px;
+        line-height: 1.8;
+        color: var(--ink);
+      }
+      .rules-list li:last-child { border-bottom: 0; font-weight: 800; }
+      .rules-list li::before {
+        content: "▶";
+        position: absolute;
+        left: 2px;
+        top: 13px;
+        font-size: 10px;
+        color: var(--red);
+      }
+
+      /* ---------- Record form ---------- */
+      .form-card {
+        margin-top: 18px;
+        background: #101014;
+        border: 1.5px solid var(--red);
+        border-radius: 16px;
+        padding: 22px;
+        box-shadow: 0 12px 30px rgba(230, 0, 18, 0.28);
+        color: #fff;
+      }
+      .form-title { font-size: 20px; font-weight: 900; }
+      .form-desc { font-size: 13.5px; color: #c9ccd4; line-height: 1.9; margin-top: 9px; }
+      .form-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .form-tag {
+        border: 1px solid rgba(230, 0, 18, 0.85);
+        background: rgba(230, 0, 18, 0.1);
+        color: #ff707a;
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+      .form-btn {
+        display: block;
+        margin-top: 18px;
+        background: var(--red);
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 900;
+        border-radius: 12px;
+        padding: 16px 12px;
+      }
+      .form-note { font-size: 12px; color: #9a9da6; line-height: 1.85; margin-top: 13px; }
+
+      /* ---------- Record (in-page) ---------- */
+      .form-backup {
+        display: inline-block;
+        margin-top: 16px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #c9ccd4;
+      }
+      .rec-card {
+        margin-top: 18px;
+        background: #fff;
+        border: 2px solid var(--red);
+        border-radius: 18px;
+        padding: 20px 18px;
+        box-shadow: 0 6px 20px rgba(20, 21, 26, 0.06);
+      }
+      .rec-group { margin-top: 20px; }
+      .rec-group:first-child { margin-top: 0; }
+      .rec-label {
+        font-size: 15.5px;
+        font-weight: 800;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .req-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--red);
+        border-radius: 999px;
+        padding: 2px 9px;
+        line-height: 1.6;
+      }
+      .opt-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gray);
+        background: var(--inner);
+        border-radius: 999px;
+        padding: 2px 9px;
+        line-height: 1.6;
+      }
+      .rec-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+      .rec-chip {
+        appearance: none;
+        border: 1.5px solid #c9ccd4;
+        background: #fff;
+        border-radius: 999px;
+        padding: 9px 15px;
+        font-size: 14.5px;
+        font-weight: 700;
+        color: var(--ink);
+        cursor: pointer;
+        line-height: 1.4;
+      }
+      .rec-chip.on { background: var(--red); border-color: var(--red); color: #fff; }
+      .rec-input {
+        width: 100%;
+        margin-top: 9px;
+        border: 1.5px solid #c9ccd4;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 16px;
+        font-family: inherit;
+        color: var(--ink);
+        background: #fff;
+      }
+      .rec-submit {
+        appearance: none;
+        display: block;
+        width: 100%;
+        margin-top: 24px;
+        background: var(--red);
+        color: #fff;
+        border: 0;
+        border-radius: 12px;
+        padding: 16px 12px;
+        font-size: 17px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .rec-submit:disabled { background: #9aa0aa; cursor: default; }
+      .rec-error {
+        margin-top: 14px;
+        background: #fdeeee;
+        border-radius: 12px;
+        padding: 12px 14px;
+        color: var(--red-text);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .rec-success {
+        margin-top: 14px;
+        background: var(--red);
+        border-radius: 12px;
+        padding: 14px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 16.5px;
+        text-align: center;
+      }
+
+      /* ---------- Closing ---------- */
+      .closing { margin-top: 46px; text-align: center; }
+      .closing-rule { border: 0; border-top: 3px solid var(--red); margin: 0 0 20px; }
+      .closing-main { font-size: 17.5px; font-weight: 900; color: var(--ink); }
+      .closing-sub { font-size: 13px; color: var(--gray); margin-top: 5px; }
+
+      @media (max-width: 480px) {
+        .kv-row { font-size: 13.5px; }
+        .kv-val { font-size: 13px; }
+      }
+      @media (max-width: 380px) {
+        .hero-eyebrow { font-size: 11px; letter-spacing: 0.15em; }
+        .mission-grid, .bike-grid { gap: 10px; }
+        .day-panel-badge { font-size: 11px; padding: 4px 9px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">NOVEMBER ACTION PLAN ／ RED × BLACK</p>
+        <h1 class="hero-title"><span class="t1">11月</span><span class="t2">アクションプラン</span></h1>
+        <p class="hero-catch">毎日やる。軽い日を作る。ゼロの日は作らない！</p>
+        <div class="hero-badges">
+          <span class="hero-badge">体重 53kg キープ</span>
+          <span class="hero-badge">睡眠 9時間</span>
+          <span class="hero-badge solid">目指すは日本代表</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+
+      <!-- (1) 今日やること -->
+      <section id="today" style="margin-top: 34px;">
+        <h2 class="sec-title">今日やること</h2>
+        <p class="sec-sub">曜日をタップすると、その日のメニューが切り替わります</p>
+        <p class="today-note" id="todayNote"></p>
+        <div class="day-tabs" id="dayTabs" role="tablist" aria-label="曜日"></div>
+        <div class="day-panel">
+          <div class="day-panel-head">
+            <span class="day-panel-name" id="panelDayName"></span>
+            <span class="day-panel-badge" id="panelBadge"></span>
+          </div>
+          <div id="panelRows"></div>
+          <div class="day-point" id="panelPoint"></div>
+        </div>
+      </section>
+
+      <!-- (2) 11月の目標 -->
+      <section>
+        <h2 class="sec-title">11月の目標</h2>
+        <p class="sec-sub">今月のミッション4つ</p>
+        <div class="mission-grid">
+          <div class="mission-card">
+            <div class="mission-label">MISSION 01</div>
+            <div class="mission-name">体力をつける</div>
+            <ul class="tri-list">
+              <li>体重53kgをキープ（中身を強くする月）</li>
+              <li>朝バイクでエンジンを大きく</li>
+              <li>夜は9時間ねる</li>
+            </ul>
+          </div>
+          <div class="mission-card">
+            <div class="mission-label">MISSION 02</div>
+            <div class="mission-name">柔らかい体を作る</div>
+            <ul class="tri-list">
+              <li>ストレッチは毎日10分</li>
+              <li>股関節は「詰まる手前」で止める</li>
+              <li>柔らかさは速さとケガ予防のもと</li>
+            </ul>
+          </div>
+          <div class="mission-card">
+            <div class="mission-label">MISSION 03</div>
+            <div class="mission-name">パス＆ロングキック</div>
+            <ul class="tri-list">
+              <li>パス：「置き所」と「80%」</li>
+              <li>ロング：「軸足」「当てる場所」「倒れすぎない」</li>
+              <li>左足は軽く触るだけ</li>
+            </ul>
+          </div>
+          <div class="mission-card">
+            <div class="mission-label">MISSION 04</div>
+            <div class="mission-name">寄せの3歩</div>
+            <ul class="tri-list">
+              <li>「ダッ、ダッ、すっ」で寄せる</li>
+              <li>最後の1歩は小さく、止まれる姿勢に</li>
+              <li>足だけ出すと、かわされる</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- (3) 毎日のストレッチ -->
+      <section>
+        <h2 class="sec-title">毎日のストレッチ（10分）</h2>
+        <p class="sec-sub">夜の自主練の最初か、お風呂の後に。終わったらタップしてチェック！</p>
+        <div data-checklist="stretch"></div>
+        <p class="video-lead">動画で動きを確認 <span>― タップでYouTubeが開きます（全4本・プレイリスト順）</span></p>
+        <div class="video-grid">
+          <a class="video-card" href="https://www.youtube.com/watch?v=gikemukKQtY&amp;list=PLM_zL-iyKq2o" target="_blank" rel="noopener">
+            <span class="video-top"><span class="video-num">VIDEO 01</span><span class="video-play">▶</span></span>
+            <span class="video-name">肋骨ほぐし</span>
+            <span class="video-link">YouTubeで見る →</span>
+          </a>
+          <a class="video-card" href="https://www.youtube.com/watch?v=ds4NNIgaogg&amp;list=PLM_zL-iyKq2o&amp;index=2" target="_blank" rel="noopener">
+            <span class="video-top"><span class="video-num">VIDEO 02</span><span class="video-play">▶</span></span>
+            <span class="video-name">胸ひねり</span>
+            <span class="video-link">YouTubeで見る →</span>
+          </a>
+          <a class="video-card" href="https://www.youtube.com/watch?v=wmNSLsiJUR4&amp;list=PLM_zL-iyKq2o&amp;index=3" target="_blank" rel="noopener">
+            <span class="video-top"><span class="video-num">VIDEO 03</span><span class="video-play">▶</span></span>
+            <span class="video-name">牛の顔</span>
+            <span class="video-link">YouTubeで見る →</span>
+          </a>
+          <a class="video-card" href="https://www.youtube.com/watch?v=ABq8macHlhU&amp;list=PLM_zL-iyKq2o&amp;index=4" target="_blank" rel="noopener">
+            <span class="video-top"><span class="video-num">VIDEO 04</span><span class="video-play">▶</span></span>
+            <span class="video-name">コモド</span>
+            <span class="video-link">YouTubeで見る →</span>
+          </a>
+        </div>
+        <p class="note">※ 水曜と金曜（軽い日）は、この型を15分に伸ばして丁寧にやる</p>
+        <p class="note">追加した4つ（大腿四頭筋・腸腰筋・ハムストリングス・ふくらはぎ）は、成長で体が硬くなりやすい時期と、ひざの痛み対策のための追加分。</p>
+      </section>
+
+      <!-- (4) 毎日のコア -->
+      <section>
+        <h2 class="sec-title">毎日のコア（腹筋＋腸腰筋・6分）</h2>
+        <p class="sec-sub">腹筋を割る土台づくりと、脚を速く振り出す「脚を引き上げる筋肉＝腸腰筋」。やるのはこの2つだけ。ストレッチの後に毎日やる。終わったらタップしてチェック！</p>
+        <div data-checklist="core"></div>
+        <p class="note">やり方のコツ：デッドバグは腰を床につけたまま、脚は股関節が詰まらない範囲だけ動かす。立位ニーアップは壁に手をついて、ひざを「速く上げて、ゆっくり下ろす」。上げるのは詰まる手前まで（最大でも腰の高さ）。</p>
+        <p class="note">股関節の前への負担が大きいレッグレイズとシットアップは入れていません。腸腰筋は脚を持ち上げて振り出す筋肉なので、速さづくりは朝バイクと週1ランと合わせて効いてきます。</p>
+        <p class="note-red">※ 月曜は筋トレAにデッドバグとプランクが入っているので、その日は立位ニーアップだけにする（足し算ではなく入れ替え）。股関節に詰まりや痛みが出たら、その日はストップ。</p>
+        <p class="note">腹筋が割れて見えるかは、筋トレ量より体の絞れ具合の影響が大きいです。今は成長期なので減量はしないこと。53kgキープのまましっかり食べて寝て、筋肉を厚くするのが近道です。</p>
+        <p class="note">追加した3つ（サイドプランク／ヒップリフト／片足立ちバランス）は+2〜3分。月曜は筋トレAにサイドプランクと片足ヒップリフトが入っているので、その日は元の入れ替えルールに合わせて重ねない。</p>
+      </section>
+
+      <!-- 追加1：家でできるボールタッチ -->
+      <section>
+        <h2 class="sec-title">家でできるボールタッチ（毎日3分）</h2>
+        <p class="sec-sub">両足ともやる。目線はなるべく上げて。畳1〜2枚分のスペースでできる。終わったらタップしてチェック！</p>
+        <div data-checklist="balltouch"></div>
+      </section>
+
+      <!-- (5) 朝バイク -->
+      <section>
+        <h2 class="sec-title">朝バイク：体力プログラム</h2>
+        <p class="sec-sub">週をタップすると、その週の回数と長さが変わります</p>
+        <div class="week-tabs" id="weekTabs"></div>
+        <div class="bike-grid">
+          <div class="bike-card">
+            <div class="bike-head"><span class="bike-name">ゆっくり</span><span class="level level-light">軽い</span></div>
+            <p class="bike-desc">20〜25分、話せるペースで一定に</p>
+          </div>
+          <div class="bike-card">
+            <div class="bike-head"><span class="bike-name">ロング</span><span class="level level-light">軽〜中</span></div>
+            <p class="bike-desc">話せるペースで、週ごとに長くする</p>
+            <p class="bike-red" id="bikeLongVal"></p>
+          </div>
+          <div class="bike-card">
+            <div class="bike-head"><span class="bike-name">テンポ</span><span class="level level-mid">中</span></div>
+            <p class="bike-desc">5分ゆっくり →「ちょっと速い」→ 5分ゆっくり</p>
+            <p class="bike-red" id="bikeTempoVal"></p>
+          </div>
+          <div class="bike-card">
+            <div class="bike-head"><span class="bike-name">スピード</span><span class="level level-hard">強い</span></div>
+            <p class="bike-desc">5分ゆっくり →（速く30秒＋ゆっくり90秒）→ 3分ゆっくり</p>
+            <div class="bike-dots"><span class="dots" id="bikeSpeedDots"></span><span class="n" id="bikeSpeedVal"></span></div>
+          </div>
+        </div>
+        <div class="week-numbers">
+          <div class="week-numbers-title" id="wnTitle"></div>
+          <div class="wn-row"><span>スピードの回数</span><span class="wn-val" id="wnSpeed"></span></div>
+          <div class="wn-row"><span>テンポの「ちょっと速い」</span><span class="wn-val" id="wnTempo"></span></div>
+          <div class="wn-row"><span>ロングの長さ</span><span class="wn-val" id="wnLong"></span></div>
+          <div class="wn-row"><span>ドットで見るスピード</span><span class="dots" id="wnDots"></span></div>
+        </div>
+        <p class="note">ルール：スピードは週1回だけ／試合の前日はスピードもテンポもなし（ゆっくりだけ）／しんどい日は「ゆっくり10分」に格下げOK、ゼロにはしない／記録更新を狙うのは週1回まで。ゆっくりとロングが「後半まで走れる足」、スピードが「繰り返しダッシュしても重くならない足」を作ります。</p>
+      </section>
+
+      <!-- (6) 1週間のプラン -->
+      <section>
+        <h2 class="sec-title">1週間のプラン</h2>
+        <p class="sec-sub">毎日「朝バイク＋ストレッチ＋コア（腹筋＋腸腰筋）＋夜の自主練」。行をタップすると上の「今日やること」にその曜日が出ます。予定がずれたら曜日でなく「種類」で数える：筋トレA・B、スピード、ロング、ラン 各1回が週のノルマ</p>
+        <div class="plan-rows" id="planRows"></div>
+      </section>
+
+      <!-- (7) 筋トレ -->
+      <section>
+        <h2 class="sec-title">筋トレ（週2回だけ）</h2>
+        <p class="sec-sub">始める前に、いつものストレッチの型から。フォームがくずれたら、その種目はそこで終わり。「きれいにできる回数」が正解</p>
+        <div class="row-card">
+          <div class="row-card-head"><span class="letter-box">A</span><span class="row-card-title">下半身＋体幹（月曜・約30分）</span></div>
+          <div class="kv-row"><span>スクワット（股関節が詰まらない深さまで）</span><span class="kv-val">10回 × 3</span></div>
+          <div class="kv-row"><span>スプリットスクワット</span><span class="kv-val">6回ずつ × 3</span></div>
+          <div class="kv-row"><span>片足ヒップリフト</span><span class="kv-val">8回ずつ × 3</span></div>
+          <div class="kv-row"><span>カーフレイズ（片足・ゆっくり）</span><span class="kv-val">10回ずつ × 3</span></div>
+          <div class="kv-row"><span>デッドバグ</span><span class="kv-val">8回 × 2</span></div>
+          <div class="kv-row"><span>サイドプランク</span><span class="kv-val">20秒ずつ × 2</span></div>
+        </div>
+        <div class="row-card">
+          <div class="row-card-head"><span class="letter-box">B</span><span class="row-card-title">上半身＋姿勢（土曜・約30分）</span></div>
+          <div class="kv-row"><span>腕立て伏せ（あと2回で限界の手前まで）</span><span class="kv-val">× 3セット</span></div>
+          <div class="kv-row"><span>チューブローイング</span><span class="kv-val">12回 × 3</span></div>
+          <div class="kv-row"><span>Y-T-W</span><span class="kv-val">5回ずつ × 2</span></div>
+          <div class="kv-row"><span>クラムシェル</span><span class="kv-val">10回ずつ × 2</span></div>
+          <div class="kv-row"><span>バードドッグ</span><span class="kv-val">6回ずつ × 2</span></div>
+        </div>
+        <p class="note-red">※ 試合の前日は、筋トレA・Bともやらない</p>
+      </section>
+
+      <!-- (8) ボールができる日に -->
+      <section>
+        <h2 class="sec-title">ボールができる日に（週1〜2回）</h2>
+        <p class="sec-sub">毎日枠じゃない。ボールが使える日だけ、1回15分くらい、3つから選ぶ</p>
+        <div class="menu-card">
+          <div class="menu-title">メニュー1　壁打ち・パス</div>
+          <ul class="tri-list">
+            <li>「置き所」を毎回チェックしながら</li>
+            <li>右足は80%で正確に／左足は軽いタッチだけ（詰まりが出たら左足は終わり）</li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <div class="menu-title">メニュー2　ロングキック <span class="focus-pill">今月の重点</span></div>
+          <div class="flow">
+            <span class="flow-chip">止める</span><span class="flow-arrow">→</span>
+            <span class="flow-chip">軸足をそろえる</span><span class="flow-arrow">→</span>
+            <span class="flow-chip">当てる場所</span>
+          </div>
+          <ul class="tri-list">
+            <li>蹴る前のトラップの位置で、飛ぶ方向が決まる</li>
+            <li>上半身を後ろに倒しすぎるとボールが浮く。それが「倒れすぎ」の合図</li>
+            <li>今月は「意識するだけ」。本格的なフォーム直しは冬のチェックの後</li>
+            <li>本数は10〜15球まで。左足のロングキックは今月はなし</li>
+            <li>股関節に詰まりが強く出たら、その場で終了</li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <div class="menu-title">メニュー3　ファーストタッチ</div>
+          <ul class="tri-list">
+            <li>返ってくるボールを「体の前・次に蹴る方向」に置く</li>
+            <li>強さより、場所</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- (9) 週1回のラン -->
+      <section>
+        <h2 class="sec-title">週1回のラン</h2>
+        <p class="sec-sub">AとBを週替わり。雪や凍結の日はやらない（バイクのロングを10分長くして代わりにする）</p>
+        <div class="row-card">
+          <div class="kv-row"><span><strong>A ゆっくり</strong>：ジョグ12〜15分、話せるペースで一定に</span><span class="kv-val">週ごと交互</span></div>
+          <div class="kv-row"><span><strong>B インターバル</strong>：15秒速く＋45秒ゆっくり（歩いてOK）</span><span class="kv-val">× 6〜8回</span></div>
+        </div>
+      </section>
+
+      <!-- (10) 最低ライン10分 -->
+      <section>
+        <div class="minline">
+          <div class="minline-title">どうしてもできない日は「最低ライン10分」</div>
+          <ol>
+            <li><strong>バイク</strong> ゆっくり10分</li>
+            <li><strong>ストレッチ短縮版</strong>（最初の4つだけでもOK）</li>
+            <li><strong>明日のテーマ</strong>を1つ決める</li>
+          </ol>
+          <p class="minline-last">ゼロの日を作らないことが、11月の一番の目標！</p>
+        </div>
+      </section>
+
+      <!-- (11) 毎日のルール＆安全 -->
+      <section>
+        <h2 class="sec-title">毎日のルール＆安全</h2>
+        <ul class="rules-list">
+          <li>練習の後30分以内に補食（おにぎり＋牛乳など）</li>
+          <li>牛乳・ヨーグルト・チーズのどれかを毎日1回（骨の材料）</li>
+          <li>寝る30分前にはスマホを終わりにする</li>
+          <li>寝る前に「明日のテーマは1つだけ」決めてノートに書く</li>
+          <li>股関節に「痛み」が出たら、その日のキックとトレーニングはストップして、家の人に言う</li>
+        </ul>
+      </section>
+
+      <!-- (13) 今日の記録 -->
+      <section>
+        <h2 class="sec-title">今日の記録</h2>
+        <p class="sec-sub">今日やったことを選んで「記録する」を押すと、このページのまま記録されます</p>
+        <div class="rec-card" id="recordForm">
+          <div class="rec-group">
+            <div class="rec-label">日付 <span class="req-badge">必須</span></div>
+            <input class="rec-input" type="date" id="recDate" />
+          </div>
+          <div class="rec-group" data-key="bike" data-label="朝バイク" data-required="1">
+            <div class="rec-label">朝バイク <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="ゆっくり">ゆっくり</button>
+              <button type="button" class="rec-chip" data-value="ロング">ロング</button>
+              <button type="button" class="rec-chip" data-value="テンポ">テンポ</button>
+              <button type="button" class="rec-chip" data-value="スピード">スピード</button>
+              <button type="button" class="rec-chip" data-value="10分だけ">10分だけ</button>
+              <button type="button" class="rec-chip" data-value="できなかった">できなかった</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="stretch" data-label="ストレッチ" data-required="1">
+            <div class="rec-label">ストレッチ <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="フルでやった">フルでやった</button>
+              <button type="button" class="rec-chip" data-value="短縮版">短縮版</button>
+              <button type="button" class="rec-chip" data-value="できなかった">できなかった</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="videoStretch" data-label="動画ストレッチ" data-required="1">
+            <div class="rec-label">動画ストレッチ <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="全部やった">全部やった</button>
+              <button type="button" class="rec-chip" data-value="一部やった">一部やった</button>
+              <button type="button" class="rec-chip" data-value="できなかった">できなかった</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="core" data-label="毎日のコア" data-required="1">
+            <div class="rec-label">毎日のコア <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="フルでやった（6種目）">フルでやった（6種目）</button>
+              <button type="button" class="rec-chip" data-value="ニーアップのみ（月曜・入れ替え）">ニーアップのみ（月曜・入れ替え）</button>
+              <button type="button" class="rec-chip" data-value="短縮した">短縮した</button>
+              <button type="button" class="rec-chip" data-value="できなかった">できなかった</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="ballTouch" data-label="ボールタッチ（家で）" data-required="1">
+            <div class="rec-label">ボールタッチ（家で） <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="フルでやった">フルでやった</button>
+              <button type="button" class="rec-chip" data-value="短縮した">短縮した</button>
+              <button type="button" class="rec-chip" data-value="できなかった">できなかった</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="night" data-label="夜の自主練" data-required="1">
+            <div class="rec-label">夜の自主練 <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="予定通り">予定通り</button>
+              <button type="button" class="rec-chip" data-value="最低ライン">最低ライン</button>
+              <button type="button" class="rec-chip" data-value="ケアのみ">ケアのみ</button>
+              <button type="button" class="rec-chip" data-value="できなかった">できなかった</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="breakfast" data-label="朝食">
+            <div class="rec-label">朝食 <span class="opt-badge">任意</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="しっかり食べた">しっかり食べた</button>
+              <button type="button" class="rec-chip" data-value="少しだけ">少しだけ</button>
+              <button type="button" class="rec-chip" data-value="ほぼ食べていない">ほぼ食べていない</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="snack" data-label="補食">
+            <div class="rec-label">補食 <span class="opt-badge">任意</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="練習後30分以内">練習後30分以内</button>
+              <button type="button" class="rec-chip" data-value="遅れた">遅れた</button>
+              <button type="button" class="rec-chip" data-value="食べていない">食べていない</button>
+              <button type="button" class="rec-chip" data-value="今日は練習なし">今日は練習なし</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="calcium" data-label="カルシウム源" data-multi="1">
+            <div class="rec-label">カルシウム源 <span class="opt-badge">複数OK</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="牛乳">牛乳</button>
+              <button type="button" class="rec-chip" data-value="ヨーグルト">ヨーグルト</button>
+              <button type="button" class="rec-chip" data-value="チーズ">チーズ</button>
+              <button type="button" class="rec-chip" data-value="しらす・骨ごと食べる小魚">しらす・骨ごと食べる小魚</button>
+              <button type="button" class="rec-chip" data-value="豆腐・高野豆腐">豆腐・高野豆腐</button>
+              <button type="button" class="rec-chip" data-value="どれもなし">どれもなし</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="sleep" data-label="昨夜の睡眠">
+            <div class="rec-label">昨夜の睡眠 <span class="opt-badge">任意</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="9時間以上">9時間以上</button>
+              <button type="button" class="rec-chip" data-value="8〜9時間">8〜9時間</button>
+              <button type="button" class="rec-chip" data-value="8時間未満">8時間未満</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="pain" data-label="痛い部分" data-multi="1">
+            <div class="rec-label">痛い部分 <span class="opt-badge">複数OK</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="痛みなし">痛みなし</button>
+              <button type="button" class="rec-chip" data-value="左ひざ">左ひざ</button>
+              <button type="button" class="rec-chip" data-value="右ひざ">右ひざ</button>
+              <button type="button" class="rec-chip" data-value="左股関節">左股関節</button>
+              <button type="button" class="rec-chip" data-value="右股関節">右股関節</button>
+              <button type="button" class="rec-chip" data-value="左足首">左足首</button>
+              <button type="button" class="rec-chip" data-value="右足首">右足首</button>
+              <button type="button" class="rec-chip" data-value="腰">腰</button>
+              <button type="button" class="rec-chip" data-value="その他">その他</button>
+            </div>
+          </div>
+          <div class="rec-group" data-key="supplement" data-label="サプリ" data-required="1">
+            <div class="rec-label">サプリ <span class="req-badge">必須</span></div>
+            <div class="rec-chips">
+              <button type="button" class="rec-chip" data-value="飲んだ">飲んだ</button>
+              <button type="button" class="rec-chip" data-value="飲んでいない">飲んでいない</button>
+            </div>
+          </div>
+          <div class="rec-group">
+            <div class="rec-label">明日の目標 <span class="req-badge">必須</span></div>
+            <input class="rec-input" type="text" id="recGoal" placeholder="明日の目標を1つ書く" />
+          </div>
+          <button type="button" class="rec-submit" id="recSubmit">記録する</button>
+          <div class="rec-error" id="recError" hidden></div>
+          <div class="rec-success" id="recSuccess" hidden>記録しました</div>
+        </div>
+      </section>
+
+      <!-- (12) 今日の記録を送る -->
+      <section>
+        <h2 class="sec-title">今日の記録を送る</h2>
+        <p class="sec-sub">1日の終わりに、フォームで記録を送ろう（1分くらいで終わります）</p>
+        <div class="form-card">
+          <div class="form-title">毎日の記録フォーム</div>
+          <p class="form-desc">今日やったことを選んで送信すると、記録が貯まっていきます。月末の振り返りと達成率は、この記録をもとに集計します。</p>
+          <div class="form-tags">
+            <span class="form-tag">朝バイク</span>
+            <span class="form-tag">ストレッチ</span>
+            <span class="form-tag">夜の自主練</span>
+            <span class="form-tag">朝食</span>
+            <span class="form-tag">補食</span>
+            <span class="form-tag">カルシウム源</span>
+            <span class="form-tag">昨夜の睡眠</span>
+            <span class="form-tag">痛い部分</span>
+            <span class="form-tag">サプリ</span>
+            <span class="form-tag">明日の目標</span>
+          </div>
+          <a class="form-backup" href="https://docs.google.com/forms/d/e/1FAIpQLSdYGq3N1iYRqmVRwO9hl6lZdwJ165OSE1Qn-_mMttvkwcYMRA/viewform" target="_blank" rel="noopener">うまく送れないときは Googleフォームから送る（予備）→</a>
+          <p class="form-note">カルシウム源は2種類以上が目安。痛い部分は正直に選ぶこと（強い痛み・腫れ・夜も痛い場合は必ず家の人に伝える）。</p>
+        </div>
+      </section>
+
+      <div class="closing">
+        <hr class="closing-rule" />
+        <div class="closing-main">走る・闘う・規律を守る。</div>
+        <div class="closing-sub">毎日の積み重ねが、未来の自分を作る。</div>
+      </div>
+
+    </main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ---------- 今日やること：曜日データ ---------- */
+        var CORE_ROW = {
+          chip: "毎日", chipClass: "chip-daily",
+          title: "コア（腹筋＋腸腰筋）6分",
+          detail: "デッドバグ 左右6回 ／ 立位ニーアップ 左右8回 × 2 ／ プランク 20秒 × 2"
+        };
+        var DAYS = [
+          { key: "月", name: "月曜日", badge: "チーム練習の日",
+            morning: ["バイク：ゆっくり 20分", "話せるペースで一定に"],
+            night: ["筋トレA（下半身）約30分", ""],
+            point: "ポイント：筋トレの日は、そのままが自主練（足し算しなくてOK）" },
+          { key: "火", name: "火曜日", badge: "チーム練習の日",
+            morning: ["バイク：テンポ or ゆっくり", "「ちょっと速い」を入れる。速い部分は10分。疲れていたらゆっくりだけ"],
+            night: ["体幹と姿勢 10〜15分", "ゆっくり10分ができればOK"],
+            point: "ポイント：テンポの日は「ゆっくり＋速く」の組み合わせ" },
+          { key: "水", name: "水曜日", badge: "チーム練習の日",
+            morning: ["バイク：ゆっくり 20分", "話せるペースで一定に"],
+            night: ["ストレッチ 15分（長め）→ 軽い日", "ストレッチを丁寧にやるだけでOK。それも立派な自主練"],
+            point: "ポイント：軽い日があるから、強い日を本気でできる" },
+          { key: "木", name: "木曜日", badge: "チーム練習の日",
+            morning: ["バイク：ゆっくり 20分", "話せるペースで一定に"],
+            night: ["股関節とお尻（軽め）", "チューブを使った軽いエクササイズ。ゆっくり10分ができればOK"],
+            point: "ポイント：負荷は小さく、丁寧に。フォームが大切" },
+          { key: "金", name: "金曜日", badge: "チーム練習の日",
+            morning: ["バイク：ゆっくり 20分", "話せるペースで一定に"],
+            night: ["ケアの日", "整骨院の宿題をしっかりやる。ケアを丁寧にやるだけでOK。負荷はかけない"],
+            point: "ポイント：ケアの日は「回復のための練習」" },
+          { key: "土", name: "土曜日", badge: "チーム練習の日",
+            morning: ["バイク：スピード（週1回）", "ただし試合の日は、スピードなしでゆっくり"],
+            night: ["筋トレB（上半身）", "試合の日はケアだけ"],
+            point: "ポイント：スピードは週1回だけ" },
+          { key: "日", name: "日曜日", badge: "練習／試合の日",
+            morning: ["バイク：ロング 30分", "話せるペースで一定に"],
+            night: ["毎日のストレッチ 10分 → 週1回のラン（A/B）", "A：ジョグ12〜15分 ／ B：15秒速く＋45秒ゆっくり×6〜8 ※試合の日はケアだけ、ランは翌週へ"],
+            point: "ポイント：雪の日はランなし。バイクのロングを10分長くして代わりにする" }
+        ];
+
+        /* ---------- 朝バイク：週データ ---------- */
+        var WEEKS = [
+          { label: "第1週", range: "11/2〜11/8", speed: 6, tempo: 10, longMin: 30 },
+          { label: "第2週", range: "11/9〜11/15", speed: 7, tempo: 12, longMin: 35 },
+          { label: "第3週", range: "11/16〜11/22", speed: 8, tempo: 15, longMin: 40 },
+          { label: "第4週", range: "11/23〜11/29", speed: 8, tempo: 15, longMin: 45 }
+        ];
+
+        var now = new Date();
+        var todayIdx = (now.getDay() + 6) % 7; // 月=0 … 日=6
+        var dom = now.getDate();
+        var currentWeek = dom <= 8 ? 0 : dom <= 15 ? 1 : dom <= 22 ? 2 : 3;
+
+        var selectedDay = todayIdx;
+        var selectedWeek = currentWeek;
+
+        /* ---------- 曜日タブとパネル ---------- */
+        var dayTabsEl = document.getElementById("dayTabs");
+        var panelName = document.getElementById("panelDayName");
+        var panelBadge = document.getElementById("panelBadge");
+        var panelRows = document.getElementById("panelRows");
+        var panelPoint = document.getElementById("panelPoint");
+        document.getElementById("todayNote").textContent =
+          "▼ 今日は" + DAYS[todayIdx].name + "（最初に選ばれています）";
+
+        function rowHtml(chip, chipClass, title, detail) {
+          var h = '<div class="day-row"><span class="day-chip ' + chipClass + '">' + chip + '</span><div>' +
+            '<div class="day-row-title">' + title + "</div>";
+          if (detail) h += '<div class="day-row-detail">' + detail + "</div>";
+          return h + "</div></div>";
+        }
+
+        function renderDay() {
+          var d = DAYS[selectedDay];
+          var tabs = dayTabsEl.children;
+          for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.toggle("on", i === selectedDay);
+            tabs[i].setAttribute("aria-selected", i === selectedDay ? "true" : "false");
+          }
+          panelName.textContent = d.name;
+          panelBadge.textContent = d.badge + " ／ " + WEEKS[selectedWeek].label;
+          panelRows.innerHTML =
+            rowHtml("朝", "chip-am", d.morning[0], d.morning[1]) +
+            rowHtml("夜", "chip-pm", d.night[0], d.night[1]) +
+            rowHtml(CORE_ROW.chip, CORE_ROW.chipClass, CORE_ROW.title, CORE_ROW.detail);
+          panelPoint.textContent = d.point;
+        }
+
+        DAYS.forEach(function (d, i) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "day-tab";
+          b.textContent = d.key;
+          b.setAttribute("role", "tab");
+          b.addEventListener("click", function () {
+            selectedDay = i;
+            renderDay();
+          });
+          dayTabsEl.appendChild(b);
+        });
+
+        /* ---------- 1週間のプラン行 ---------- */
+        var PLAN = [
+          ["月", "朝：ゆっくり", "夜：筋トレA（下半身）約30分"],
+          ["火", "朝：テンポ or ゆっくり", "夜：体幹と姿勢 10〜15分"],
+          ["水", "朝：ゆっくり", "夜：軽い日：ストレッチ15分だけでもOK"],
+          ["木", "朝：ゆっくり", "夜：股関節とお尻（軽め）"],
+          ["金", "朝：ゆっくり", "夜：ケアの日：整骨院の宿題があれば最優先"],
+          ["土", "朝：スピード（週1回）※試合の日はゆっくり", "夜：筋トレB（上半身）／試合の日はケア"],
+          ["日", "朝：ロング", "夜：週1回のラン／試合の日はケアだけ"]
+        ];
+        var planRowsEl = document.getElementById("planRows");
+        PLAN.forEach(function (p, i) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "plan-row";
+          b.innerHTML = '<span class="plan-circle">' + p[0] + '</span><span>' +
+            '<span class="plan-am">' + p[1] + '</span>' +
+            '<span class="plan-pm">' + p[2] + "</span></span>" +
+            '<span class="plan-arrow">›</span>';
+          b.addEventListener("click", function () {
+            selectedDay = i;
+            renderDay();
+            document.getElementById("today").scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+          planRowsEl.appendChild(b);
+        });
+
+        /* ---------- 週タブとバイク数値 ---------- */
+        var weekTabsEl = document.getElementById("weekTabs");
+
+        function dotsHtml(filled) {
+          var h = "";
+          for (var i = 0; i < 8; i++) h += '<span class="dot' + (i < filled ? " fill" : "") + '"></span>';
+          return h;
+        }
+
+        function renderWeek() {
+          var w = WEEKS[selectedWeek];
+          var tabs = weekTabsEl.children;
+          for (var i = 0; i < tabs.length; i++) tabs[i].classList.toggle("on", i === selectedWeek);
+          document.getElementById("bikeLongVal").textContent = "長さは " + w.longMin + "分";
+          document.getElementById("bikeTempoVal").textContent = "速い部分は " + w.tempo + "分";
+          document.getElementById("bikeSpeedDots").innerHTML = dotsHtml(w.speed);
+          document.getElementById("bikeSpeedVal").textContent = w.speed + "回";
+          document.getElementById("wnTitle").textContent = w.label + "（" + w.range + "）の数字";
+          document.getElementById("wnSpeed").textContent = w.speed + "回";
+          document.getElementById("wnTempo").textContent = w.tempo + "分";
+          document.getElementById("wnLong").textContent = w.longMin + "分";
+          document.getElementById("wnDots").innerHTML = dotsHtml(w.speed);
+          renderDay();
+        }
+
+        WEEKS.forEach(function (w, i) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "week-tab";
+          b.innerHTML = '<span class="wt-label">' + w.label + '</span><span class="wt-range">' + w.range + "</span>";
+          b.addEventListener("click", function () {
+            selectedWeek = i;
+            renderWeek();
+          });
+          weekTabsEl.appendChild(b);
+        });
+
+        /* ---------- チェックリスト ---------- */
+        var CHECKLISTS = {
+          stretch: {
+            resetLabel: "ストレッチのチェックをリセット",
+            items: [
+              ["キャット＆カウ", "", "5回"],
+              ["股関節回し（詰まる手前まで）", "", "左右5回"],
+              ["肩回し", "", "前後10回"],
+              ["スレッド・ザ・ニードル", "", "左右5回"],
+              ["ウォールスライド", "", "8回"],
+              ["胸椎回旋", "", "左右5回"],
+              ["オープンブック", "", "左右5回"],
+              ["広背筋ストレッチ", "", "左右20秒"],
+              ["大腿四頭筋（太もも前）", "", "左右20秒"],
+              ["腸腰筋（股関節の前）", "", "左右20秒"],
+              ["ハムストリングス", "", "左右20秒"],
+              ["ふくらはぎ", "", "左右20秒"],
+              ["ドローイン", "", "10回"]
+            ]
+          },
+          core: {
+            resetLabel: "コアのチェックをリセット",
+            items: [
+              ["デッドバグ", "腹筋", "左右6回 × 1"],
+              ["立位ニーアップ", "腸腰筋", "左右8回 × 2"],
+              ["プランク", "腹筋", "20秒 × 2"],
+              ["サイドプランク", "体幹", "15〜20秒 × 左右"],
+              ["ヒップリフト（両足）", "お尻", "10回 × 1"],
+              ["片足立ちバランス", "バランス", "30秒 × 左右"]
+            ]
+          },
+          balltouch: {
+            resetLabel: "ボールタッチのチェックをリセット",
+            items: [
+              ["タップ（左右交互にボール上を触る）", "", "20回"],
+              ["足裏ロール（前後・左右）", "", "各10回"],
+              ["V字プル→プッシュ", "", "各10回"]
+            ]
+          }
+        };
+
+        Object.keys(CHECKLISTS).forEach(function (key) {
+          var host = document.querySelector('[data-checklist="' + key + '"]');
+          if (!host) return;
+          var def = CHECKLISTS[key];
+          var total = def.items.length;
+
+          var progressRow = document.createElement("div");
+          progressRow.className = "progress-row";
+          progressRow.innerHTML = '<div class="progress-track"><div class="progress-fill"></div></div>' +
+            '<span class="progress-count">0 / ' + total + "</span>";
+          host.appendChild(progressRow);
+          var fill = progressRow.querySelector(".progress-fill");
+          var count = progressRow.querySelector(".progress-count");
+
+          var card = document.createElement("div");
+          card.className = "check-card";
+          host.appendChild(card);
+
+          var buttons = [];
+          function update() {
+            var done = 0;
+            buttons.forEach(function (btn) { if (btn.classList.contains("done")) done++; });
+            count.textContent = done + " / " + total;
+            fill.style.width = (total ? (done / total) * 100 : 0) + "%";
+          }
+
+          def.items.forEach(function (item) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "check-item";
+            btn.setAttribute("aria-pressed", "false");
+            var tagHtml = "";
+            if (item[1]) {
+              var cls = item[1] === "腹筋" ? "tag-red" : "tag-navy";
+              tagHtml = '<span class="tag ' + cls + '">' + item[1] + "</span>";
+            }
+            btn.innerHTML = '<span class="check-box"></span>' + tagHtml +
+              '<span class="check-name">' + item[0] + '</span>' +
+              '<span class="check-reps">' + item[2] + "</span>";
+            btn.addEventListener("click", function () {
+              btn.classList.toggle("done");
+              btn.setAttribute("aria-pressed", btn.classList.contains("done") ? "true" : "false");
+              update();
+            });
+            card.appendChild(btn);
+            buttons.push(btn);
+          });
+
+          var reset = document.createElement("button");
+          reset.type = "button";
+          reset.className = "reset-btn";
+          reset.textContent = def.resetLabel;
+          reset.addEventListener("click", function () {
+            buttons.forEach(function (btn) {
+              btn.classList.remove("done");
+              btn.setAttribute("aria-pressed", "false");
+            });
+            update();
+          });
+          host.appendChild(reset);
+          update();
+        });
+
+        renderDay();
+        renderWeek();
+      })();
+    </script>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var ENDPOINT = "https://script.google.com/macros/s/AKfycbxx61pCWGpMRtRNFiJ4WD94BsKjPrmLYS5kkgNW2lzvxTj-puNXnVtnRs7d7OV3P1Sk/exec";
+        var KEYS = ["bike", "stretch", "videoStretch", "core", "ballTouch", "night",
+          "breakfast", "snack", "calcium", "sleep", "pain", "supplement"];
+
+        var root = document.getElementById("recordForm");
+        if (!root) return;
+        var dateInput = document.getElementById("recDate");
+        var goalInput = document.getElementById("recGoal");
+        var submitBtn = document.getElementById("recSubmit");
+        var errorEl = document.getElementById("recError");
+        var successEl = document.getElementById("recSuccess");
+
+        function pad(n) { return (n < 10 ? "0" : "") + n; }
+        var today = new Date();
+        dateInput.value = today.getFullYear() + "-" + pad(today.getMonth() + 1) + "-" + pad(today.getDate());
+
+        var groups = {};
+        var groupEls = root.querySelectorAll(".rec-group[data-key]");
+        for (var i = 0; i < groupEls.length; i++) {
+          groups[groupEls[i].getAttribute("data-key")] = groupEls[i];
+        }
+
+        var submitted = false;
+
+        function markChanged() {
+          errorEl.hidden = true;
+          successEl.hidden = true;
+          if (submitted) {
+            submitted = false;
+            submitBtn.disabled = false;
+            submitBtn.textContent = "記録する";
+          }
+        }
+
+        Object.keys(groups).forEach(function (key) {
+          var group = groups[key];
+          var multi = group.getAttribute("data-multi") === "1";
+          var chips = group.querySelectorAll(".rec-chip");
+          chips.forEach(function (chip) {
+            chip.addEventListener("click", function () {
+              if (multi) {
+                chip.classList.toggle("on");
+              } else {
+                chips.forEach(function (c) { c.classList.remove("on"); });
+                chip.classList.add("on");
+              }
+              markChanged();
+            });
+          });
+        });
+        dateInput.addEventListener("change", markChanged);
+        dateInput.addEventListener("input", markChanged);
+        goalInput.addEventListener("input", markChanged);
+
+        function groupValue(key) {
+          var group = groups[key];
+          if (!group) return "";
+          var on = group.querySelectorAll(".rec-chip.on");
+          var vals = [];
+          on.forEach(function (chip) { vals.push(chip.getAttribute("data-value")); });
+          return vals.join(", ");
+        }
+
+        submitBtn.addEventListener("click", function () {
+          var payload = {};
+          payload.date = dateInput.value ? dateInput.value.replace(/-/g, "/") : "";
+
+          var missing = [];
+          if (!payload.date) missing.push("日付");
+          KEYS.forEach(function (key) {
+            var v = groupValue(key);
+            payload[key] = v;
+            var group = groups[key];
+            if (group && group.getAttribute("data-required") === "1" && !v) {
+              missing.push(group.getAttribute("data-label"));
+            }
+          });
+          payload.goal = goalInput.value.replace(/^\s+|\s+$/g, "");
+          if (!payload.goal) missing.push("明日の目標");
+
+          errorEl.hidden = true;
+          successEl.hidden = true;
+
+          if (missing.length) {
+            errorEl.textContent = "未入力の項目があります：" + missing.join("、");
+            errorEl.hidden = false;
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = "記録中…";
+
+          fetch(ENDPOINT, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain" },
+            body: JSON.stringify(payload)
+          }).then(function () {
+            submitted = true;
+            submitBtn.textContent = "記録済み";
+            successEl.hidden = false;
+          }).catch(function () {
+            errorEl.textContent = "記録できませんでした。もう一度押してください";
+            errorEl.hidden = false;
+            submitBtn.disabled = false;
+            submitBtn.textContent = "記録する";
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
